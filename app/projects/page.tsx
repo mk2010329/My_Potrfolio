@@ -67,7 +67,7 @@ const Projects = () => {
           >
             <h1 className="text-4xl font-bold text-gray-900 mb-6">My Projects</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Here are some of the projects I've worked on, showcasing my skills
+              Here are some of the projects I have worked on, showcasing my skills
               in various technologies and frameworks.
             </p>
           </motion.div>

@@ -28,7 +28,7 @@ export default function About() {
           >
             <h1 className="text-4xl font-bold text-gray-900 mb-6">About Me</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              I'm a passionate full-stack developer with a love for creating innovative
+              I&apos;m a passionate full-stack developer with a love for creating innovative
               solutions and beautiful user experiences.
             </p>
           </motion.div>
@@ -47,7 +47,7 @@ export default function About() {
                 </p>
                 <p>
                   My journey began during college when I discovered my passion for coding.
-                  Since then, I've worked on numerous projects ranging from small business
+                  Since then, I have worked on numerous projects ranging from small business
                   websites to large-scale applications.
                 </p>
                 <p>

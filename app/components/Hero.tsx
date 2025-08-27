@@ -20,11 +20,11 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Hi, I'm{' '}
+              Hi, I&apos;m{' '}
               <span className="text-blue-600">Mohammad Hassam</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              I'm a passionate developer creating amazing digital experiences.
+              I&apos;m a passionate developer creating amazing digital experiences.
               Welcome to my portfolio where you can explore my journey,
               education, achievements, and projects.
             </p>
