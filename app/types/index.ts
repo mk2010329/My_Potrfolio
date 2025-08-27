@@ -9,7 +9,6 @@ export interface QuickStat {
 }
 
 export interface PreviewSection {
-  image: any;
   title: string;
   description: string;
   href: string;
