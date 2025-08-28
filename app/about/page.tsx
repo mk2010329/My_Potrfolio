@@ -4,21 +4,23 @@ import { motion } from "framer-motion";
 import Navbar from "@/app/components/Navbar";
 import { Skill } from "@/app/types";
 
-const coreSkills: Array<{name: string, level: number, Icon: any, color: string}> = [
+import { IconType } from "react-icons"; // this is the proper type
+
+const coreSkills: Array<{ name: string; level: number; Icon: IconType; color: string }> = [
   { name: "JavaScript", level: 90, Icon: FaJs, color: "text-yellow-400" },
   { name: "Python", level: 75, Icon: FaPython, color: "text-green-500" },
   { name: "Java", level: 80, Icon: FaJava, color: "text-red-600" },
   { name: "Database Design", level: 70, Icon: FaDatabase, color: "text-blue-600" },
 ];
 
-const otherLanguages: Array<{name: string, Icon: any, color: string}> = [
+const otherLanguages: Array<{ name: string; Icon: IconType; color: string }> = [
   { name: "C", Icon: SiGithub, color: "text-gray-600" },
   { name: "Dart", Icon: SiFlutter, color: "text-blue-500" },
   { name: "HTML/CSS", Icon: FaHtml5, color: "text-orange-500" },
   { name: "PL/SQL", Icon: FaDatabase, color: "text-blue-500" },
 ];
 
-const frameworksTools: Array<{name: string, Icon: any, color: string}> = [
+const frameworksTools: Array<{ name: string; Icon: IconType; color: string }> = [
   { name: "React.js", Icon: FaReact, color: "text-blue-400" },
   { name: "Next.js", Icon: SiNextdotjs, color: "text-black" },
   { name: "Flutter", Icon: SiFlutter, color: "text-blue-500" },
@@ -28,6 +30,7 @@ const frameworksTools: Array<{name: string, Icon: any, color: string}> = [
   { name: "JUnit", Icon: SiJunit5, color: "text-green-600" },
   { name: "Gradle", Icon: SiGradle, color: "text-blue-600" },
 ];
+
 
 import { 
   FaJava, 
