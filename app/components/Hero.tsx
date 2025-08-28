@@ -11,54 +11,10 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center pt-16">
+    <section className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center pt-16" style={{}}>
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Hi, I&apos;m{' '}
-              <span className="text-blue-600">Mohammad Hassam</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              I&apos;m a passionate developer creating amazing digital experiences.
-              Welcome to my portfolio where you can explore my journey,
-              education, achievements, and projects.
-            </p>
-            
-            <div className="flex flex-wrap gap-4 mb-8">
-              <Link href="/about" className="btn-primary">
-                Learn More About Me
-              </Link>
-              <Link href="/projects" className="btn-secondary">
-                View My Work
-              </Link>
-            </div>
-
-            <div className="flex space-x-6">
-              {socialLinks.map((link: SocialLink) => {
-                const IconComponent = link.icon;
-                return (
-                  <motion.a
-                    key={link.platform}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2 }}
-                    className="text-gray-600 hover:text-blue-600 text-2xl"
-                    aria-label={`Visit my ${link.platform} profile`}
-                  >
-                    <IconComponent />
-                  </motion.a>
-                );
-              })}
-            </div>
-          </motion.div>
-
-          <motion.div
+                    <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -87,6 +43,48 @@ const Hero: React.FC = () => {
               <span className="text-xl">🚀</span>
             </motion.div>
           </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Hi, I&apos;m{' '}
+              <span className="text-blue-600">Mohammad Hassam</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              I&apos;m a passionate developer creating amazing digital experiences.
+              Welcome to my portfolio where you can explore my journey,
+              education, achievements, and projects.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 mb-8">
+              <Link href="/about" className="btn-primary">
+                Learn More About Me
+              </Link>
+
+            </div>
+
+            <div className="flex space-x-6">
+              {socialLinks.map((link: SocialLink) => {
+                const IconComponent = link.icon;
+                return (
+                  <motion.a
+                    key={link.platform}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.2 }}
+                    className="text-gray-600 hover:text-blue-600 text-2xl"
+                    aria-label={`Visit my ${link.platform} profile`}
+                  >
+                    <IconComponent />
+                  </motion.a>
+                );
+              })}
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

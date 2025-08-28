@@ -15,12 +15,12 @@
       { name: "About", path: "/about" },
       { name: "Education", path: "/education" },
       { name: "Achievements", path: "/achievements" },
+      { name: "Experience", path: "/experience" },
       { name: "Projects", path: "/projects" },
     ];
 
     return (
-      <nav className="bg-white shadow-lg fixed w-full top-0 z-50" style={{
-        background: `linear-gradient(135deg, 
+      <nav className="bg-white shadow-lg fixed w-full top-0 z-50" style={{background: `linear-gradient(135deg, 
           #0A369D 0%, 
           #4472CA 20%, 
           #5E7CE2 40%, 
@@ -29,10 +29,9 @@
           #001233 100%
         )`,
           backgroundSize: '400% 400%',
-  animation: 'gradientMove 10s ease infinite'
-      }}>
+}}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" >
-          <div className="flex justify-between items-center h-16" >
+          <div className="flex justify-between items-center h-18" >
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}

@@ -8,29 +8,20 @@ const educationData: Education[] = [
   {
     id: '1',
     degree: 'Bachelor of Science in Computer Science',
-    institution: 'University of Technology',
-    location: 'New York, NY',
-    period: '2018 - 2022',
-    gpa: '3.8/4.0',
+    institution: 'Qatar University',
+    location: 'Qatar',
+    period: '2021 - 2025',
+    gpa: '3.62/4.0',
     description: 'Focused on software engineering, algorithms, and web development. Completed multiple projects including a full-stack web application and mobile app development.',
     image: '/images/university1.jpg'
   },
   {
     id: '2',
-    degree: 'Full Stack Web Development Bootcamp',
-    institution: 'Tech Academy',
-    location: 'Online',
-    period: '2022',
-    description: 'Intensive 6-month program covering modern web technologies including React, Node.js, databases, and deployment strategies.',
-    image: '/images/bootcamp.jpg'
-  },
-  {
-    id: '3',
-    degree: 'High School Diploma',
-    institution: 'Central High School',
-    location: 'Boston, MA',
-    period: '2014 - 2018',
-    gpa: '3.9/4.0',
+    degree: 'A Levels',
+    institution: 'Bahria College Islamabad',
+    location: 'Islamabad, Pakistan',
+    period: '2018 - 2020',
+    gpa: '-',
     description: 'Graduated with honors. President of Computer Club and participant in regional programming competitions.',
     image: '/images/highschool.jpg'
   }

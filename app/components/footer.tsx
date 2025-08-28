@@ -33,11 +33,11 @@ export default function Footer() {
         <div className="md:w-1/2 flex flex-col justify-between text-white">
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-2">Get in Touch</h2>
-            <p className="mb-2">WhatsApp: +1234567890</p>
-            <p>Email: your-email@example.com</p>
+            <p className="mb-2">WhatsApp: +974-55787624</p>
+            <p>Email: hassamtk@gmail.com</p>
           </div>
           <p className="text-gray-300 text-sm mt-auto">
-            © {new Date().getFullYear()} Your Name. All rights reserved.
+            © {new Date().getFullYear()} MHTK. All rights reserved.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export default function Footer() {
           />
           <button
             onClick={handleSend}
-            className="bg-blue-600 hover:bg-blue-700 transition-colors px-6 py-3 rounded-lg font-semibold self-start"
+            className="bg-blue-300 hover:bg-blue-400 transition-colors px-6 py-3 rounded-lg font-semibold self-start"
           >
             Send
           </button>

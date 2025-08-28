@@ -17,13 +17,6 @@ const quickStats: QuickStat[] = [
 
 const previewSections: PreviewSection[] = [
   {
-    title: "About Me",
-    description:
-      "Learn about my background, skills, and what drives my passion for development.",
-    href: "/about",
-    icon: "👨‍💼",
-  },
-  {
     title: "Education",
     description:
       "My academic journey and continuous learning in technology and development.",
@@ -36,6 +29,13 @@ const previewSections: PreviewSection[] = [
       "Awards, certifications, and milestones that mark my professional growth.",
     href: "/achievements",
     icon: "🏆",
+  },
+    {
+    title: "Experience",
+    description:
+      "Learn about my background, skills, and what drives my passion for development.",
+    href: "/about",
+    icon: "📈",
   },
   {
     title: "Projects",
