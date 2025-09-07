@@ -3,6 +3,8 @@ import { JSX, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaAward, FaCertificate, FaExternalLinkAlt, FaTimes, FaExpand } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
+import React from "react";
+import { IconType } from 'react-icons';
 
 // Type definitions
 interface Achievement {
@@ -87,11 +89,10 @@ const achievements: Achievement[] = [
   },
 ];
 
-const categoryIcons: Record<Achievement['category'], React.ComponentType<any>> = {
+const categoryIcons: Record<Achievement['category'], IconType> = {
   award: FaAward,
   certification: FaCertificate,
 };
-
 const categoryColors: Record<Achievement['category'], string> = {
   award: 'from-yellow-400 to-orange-500',
   certification: 'from-blue-400 to-indigo-500',
