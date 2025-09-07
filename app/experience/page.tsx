@@ -85,7 +85,7 @@ const projects: Project[] = [
   },
 ];
 
-const Projects = () => {
+const Experience = () => {
   const [currentSection, setCurrentSection] = useState(0);
 
   useEffect(() => {
@@ -128,7 +128,7 @@ const Projects = () => {
       </div>
 
       {/* Arrow fixed at bottom */}
-      <Reveal delay={0.3} className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
+      <Reveal delay={0.3} className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10">
         <button
           onClick={scrollToNext}
           className="animate-bounce text-white hover:text-blue-400 transition-colors"
@@ -386,4 +386,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Experience;

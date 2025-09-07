@@ -37,7 +37,7 @@ export interface Achievement {
   organization: string;
   date: string;
   description: string;
-  category: 'award' | 'certification' | 'publication' | 'other';
+  category: 'award' | 'certification';
   image?: string;
   link?: string;
 }

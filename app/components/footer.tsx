@@ -1,30 +1,61 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Footer() {
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-  const handleSend = async () => {
-    if (!message.trim()) return;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // ✅ Check for empty fields (extra safety beyond "required")
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setStatus("All fields are required ❌");
+      return;
+    }
+
     setStatus("Sending...");
+    setLoading(true);
+    setSuccess(false);
+
     try {
-      const res = await fetch("/api/send-email", {
+      const res = await fetch("https://formsubmit.co/ajax/613f19f6fa4de4676a1e7f43634cde19", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
       });
 
       if (res.ok) {
         setStatus("Message sent! ✅");
-        setMessage("");
+        setFormData({ name: "", email: "", message: "" });
+        setSuccess(true);
       } else {
         setStatus("Failed to send message ❌");
       }
     } catch (error) {
       setStatus("Error sending message ❌");
+    } finally {
+      setLoading(false);
     }
   };
+
+  // ✅ Reset form back after 3 seconds of success
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        setSuccess(false);
+        setStatus("");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [success]);
 
   return (
     <footer className="py-12 px-6" style={{ backgroundColor: "#001845" }}>
@@ -44,21 +75,108 @@ export default function Footer() {
         {/* Right Column */}
         <div className="md:w-1/2 flex flex-col">
           <h2 className="text-2xl font-bold mb-4 text-white">Send Me a Message</h2>
-          <textarea
-            className="w-full h-40 p-4 rounded-lg mb-4 text-gray-900 bg-white"
-            placeholder="Write your message here..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <button
-            onClick={handleSend}
-            className="bg-blue-300 hover:bg-blue-400 transition-colors px-6 py-3 rounded-lg font-semibold self-start"
-          >
-            Send
-          </button>
-          {status && <p className="mt-2 text-white">{status}</p>}
-        </div>
-      </div>
-    </footer>
-  );
+
+          <AnimatePresence mode="wait">
+            {!success ? (
+              <motion.form
+                key="form"
+                onSubmit={handleSubmit}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="flex flex-col gap-4"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="p-3 rounded-lg text-gray-900 bg-white"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="p-3 rounded-lg text-gray-900 bg-white"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Write your message here..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full h-40 p-4 rounded-lg text-gray-900 bg-white"
+                />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className={`px-6 py-3 rounded-lg font-semibold self-start transition-colors ${
+                    loading
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-blue-300 hover:bg-blue-400"
+                  }`}
+                >
+                  {loading ? "Sending..." : "Send"}
+                </button>
+
+                {status && (
+                  <motion.p
+                    key="status"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-red-400 font-medium"
+                  >
+                    {status}
+                  </motion.p>
+                )}
+              </motion.form>
+            ) :  (
+            <motion.div
+              key="success"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col items-center justify-center text-green-400"
+            >
+              {/* ✅ Pulsing Check */}
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [1, 1.2, 1], opacity: [1, 0.8, 1] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-6xl mb-2"
+              >
+                ✅
+              </motion.div>
+
+              {/* Pulsing Text */}
+              <motion.p
+                animate={{ opacity: [1, 0.6, 1], scale: [1, 1.05, 1] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-lg font-semibold"
+              >
+                {status}
+              </motion.p>
+            </motion.div>
+          )}
+
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </footer>
+            );
 }
